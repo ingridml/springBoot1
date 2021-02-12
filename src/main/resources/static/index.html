@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Ukesoppgaver uke 6</title>
+</head>
+<body>
+<h1>Ukesoppgaver uke 6</h1>
+
+<div>
+    <h3>Oppgave 1</h3>
+    <label for="maaned">Skriv inn en måned: </label>
+    <br>
+    <input type="text" id="maaned"/>
+    <button id="visTemperatur">Få gjennomsnittstemperatur</button>
+    <p>Gjennomsnittstemperaturen i Oslo for gitt måned er: </p>
+    <div id="tempResultat"></div>
+</div>
+
+<div>
+    <h3>Oppgave 2</h3>
+
+</div>
+
+<script type="application/javascript">
+    $(function(){
+        $("#visTemperatur").click(function(){
+            const url = "http://localhost:8080/?innmaaned=" + $("#maaned").val();
+            $.get(url, function (data){
+                console.log(data);
+                $("#tempResultat").html(data);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
+
+<!-- OPPGAVE 1:
+Det skal lages et klient-tjener-program som svarer med gjennomsnittstemperaturen for Oslo for en gitt måned.
+Det skal kunne skrives inn en måned på nettsiden, denne skal så overføres til server når en knapp trykkes.
+På server skal det ligge et array med tolv temperaturer (én for hver måned).
+Den tilsvarende temperaturen skal så overføres tilbake til get-kallet i klienten og vises på nettsiden.
+
+En HTML-fil (index.html) skal inneholde all klientkode
+og det skal opprettes en controller på server med en get-metode.
+
+Bruk følgende kode for å opprette arrayet på server:
+private final Integer[] tempArray = new Integer[]{-3,-2,2,7,12,16,18,17,12,7,3,-2};
+
+Bruk videre en switch for å "oversette" månedsnavn til array-indeks.
+-->
+
+<!-- OPPGAVE 2:
+Lag en valutakalkulator med valutakursene lagret i et array på server.
+En "Valuta" er et objekt med to attributter, valutasort (USD, SEK, etc.) og valutakurs.
+Applikasjonen skal ha to HTML-sider. Den første HTML-siden initierer valutakursene i arrayet på server.
+Denne må kalles etter applikasjonen har startet, før valutakalkulatoren kan brukes.
+
+Arrayet på server kan være:
+
+private ArrayList<Valuta> valutaRegister = new ArrayList<>();
+
+Den andre HTML-siden skal inneholde to inputfelter, én for valutasort og én for verdien man ønsker å omforme til NOK.
+Når så en knapp trykkes skal de to inputfeltene overføres som et "Valuta"-objekt
+(nå med beløpet i attributtet/feltet for valutakurs) til server.
+Der skal man så bruke valutasorten til å finne den tilsvarende valutakursen i arrayet.
+Så skal man beregne norske kroner fra dette, returnere beløpet til klienten og vise det der.
+(Alternativt kan det lages en egen klasse for overføringen av beløp og valutasort til server
+for å unngå å bruke "Valuta"-klassen til to ulike konsepter.)
+-->
