@@ -24,10 +24,10 @@
 </div>
 
 <script type="application/javascript">
-    $(function(){
-        $("#visTemperatur").click(function(){
+    $(function () {
+        $("#visTemperatur").click(function () {
             const url = "http://localhost:8080/?innmaaned=" + $("#maaned").val();
-            $.get(url, function (data){
+            $.get(url, function (data) {
                 console.log(data);
                 $("#tempResultat").html(data);
             });

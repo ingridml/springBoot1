@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TempController {
-    private final Integer[] tempArray = new Integer[]{-3,-2,2,7,12,16,18,17,12,7,3,-2};
+    private final Integer[] tempArray = new Integer[]{-3, -2, 2, 7, 12, 16, 18, 17, 12, 7, 3, -2};
 
     @GetMapping("/")
 
-    public int returTemp(String innmaaned){
+    public int returTemp(String innmaaned) {
 
         int temp = 0;
 
-        switch (innmaaned){
+        switch (innmaaned) {
             case "januar":
                 temp = tempArray[0];
                 break;
