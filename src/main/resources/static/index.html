@@ -20,10 +20,23 @@
 
 <div>
     <h3>Oppgave 2</h3>
-
-</div>
+    <h4>Valutakalkulator</h4>
+    <label for="valutasort">Valutasort: </label>
+    <input type="text" id="valutasort"/>
+    <br>
+    <br>
+    <label for="valutabelop">Beløp: </label>
+    <input type="text" id="valutabelop"/>
+    <br>
+    <br>
+    <button id="visKonvertert">Regn om til NOK</button>
+    <br>
+    <br>
+    <div id="belopKonvertert"></div>
+    </div>
 
 <script type="application/javascript">
+    //OPPGAVE1
     $(function () {
         $("#visTemperatur").click(function () {
             const url = "http://localhost:8080/?innmaaned=" + $("#maaned").val();
@@ -33,6 +46,22 @@
             });
         });
     });
+
+    //OPPGAVE 2
+    $(function () {
+        $("#visKonvertert").click(function () {
+            const valutasort = $("#valutasort").val();
+            const valutabelop = $("#valutabelop").val();
+
+            const url = "/hentKurs/?innsort" + valutasort + "innBelop=" + valutabelop
+
+            $.get(url, function(data){
+                $('input').val("");
+                $("#belopKonvertert").html(data);
+            });
+        });
+    });
+
 </script>
 
 </body>

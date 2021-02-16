@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="no">
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Valutakalkulator</title>
+</head>
+<body>
+
+<script type="application/javascript">
+    $(function(){
+
+        //Opprette objekt "valuta":
+        const valuta = {
+            valutasort: "USD",
+            valutakurs: 8.44
+        };
+
+        /*
+        const valutakurs2 = {
+            valutasort: "EUR",
+            valutakurs: "10.25"
+        };
+
+        const valutakurs3 = {
+            valutasort: "SEK",
+            valutakurs: "101.71"
+        };
+        */
+
+        //Sender objekt til server:
+        $.get("/lagreArray", valuta, function(){
+        });
+    });
+
+
+
+</script>
+
+</body>
+</html>
