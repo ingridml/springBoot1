@@ -13,16 +13,16 @@ public class ValutaController {
 
     //Legger til objektet i arrayet:
     @GetMapping("/lagreArray")
-    public void lagArray(Valuta valuta){
+    public void lagArray(Valuta valuta) {
         valutaRegister.add(valuta);
     }
 
     //
     @GetMapping("/hentAlle")
-    public String returBelop(String innSort, String innBelop){
-        for (Valuta valuta: valutaRegister){
-            if(valuta.getValutasort().equals(innSort)){
-                return (Double.parseDouble(innBelop)*valuta.getValutakurs()+ "" + valuta.getValutasort());
+    public String returBelop(String innSort, String innBelop) {
+        for (Valuta valuta : valutaRegister) {
+            if (valuta.getValutasort().equals(innSort)) {
+                return (Double.parseDouble(innBelop) * valuta.getValutakurs() + "" + valuta.getValutasort());
             }
         }
         return "Feil";
