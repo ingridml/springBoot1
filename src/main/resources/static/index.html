@@ -17,7 +17,7 @@
     <p>Gjennomsnittstemperaturen i Oslo for gitt måned er: </p>
     <div id="tempResultat"></div>
 </div>
-
+<br>
 <div>
     <h3>Oppgave 2</h3>
     <h4>Valutakalkulator</h4>
@@ -50,18 +50,18 @@
     //OPPGAVE 2
     $(function () {
         $("#visKonvertert").click(function () {
+
             const valutasort = $("#valutasort").val();
             const valutabelop = $("#valutabelop").val();
 
-            const url = "/hentKurs/?innsort" + valutasort + "innBelop=" + valutabelop
+            const url = "/?innsort=" + valutasort + "&innBelop=" + valutabelop;
 
-            $.get(url, function(data){
-                $('input').val("");
-                $("#belopKonvertert").html(data);
-            });
+                $.get(url, function(data){
+                    $("input").val("");
+                    $("#belopKonvertert").html(data);
+                });
         });
     });
-
 </script>
 
 </body>

@@ -29,7 +29,10 @@
         */
 
         //Sender objekt til server:
-        $.get("/lagreArray", valuta, function(){
+        const url = "/lagreArray/?innValuta=" + valuta;
+
+        $.get(url, function(){
+            window.location.href = "/";
         });
     });
 

@@ -1,13 +1,13 @@
 package oslomet.webprog;
 
 public class Valuta {
-        private String valutasort;
-        private double valutakurs;
+    private String valutasort;
+    private double valutakurs;
 
-        public Valuta(String valutasort, double valutakurs){
-            this.valutasort = valutasort;
-            this.valutakurs = valutakurs;
-        }
+    public Valuta(String valutasort, double valutakurs){
+        this.valutasort = valutasort;
+        this.valutakurs = valutakurs;
+    }
 
     public Valuta(){
     }

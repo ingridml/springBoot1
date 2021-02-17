@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TempController {
     private final Integer[] tempArray = new Integer[]{-3, -2, 2, 7, 12, 16, 18, 17, 12, 7, 3, -2};
 
-    @GetMapping("/")
-
+    //@GetMapping("/")
     public int returTemp(String innmaaned) {
 
         int temp = 0;
