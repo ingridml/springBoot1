@@ -17,7 +17,7 @@
         };
 
         /*
-        const valutakurs2 = {
+        const valuta2 = {
             valutasort: "EUR",
             valutakurs: "10.25"
         };
@@ -29,15 +29,9 @@
         */
 
         //Sender objekt til server:
-        const url = "/lagreArray/?innValuta=" + valuta;
-
-        $.get(url, function(){
-            window.location.href = "/";
+        $.get("/lagreArray", valuta, function(){
         });
     });
-
-
-
 </script>
 
 </body>

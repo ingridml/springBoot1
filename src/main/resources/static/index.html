@@ -21,7 +21,7 @@
 <div>
     <h3>Oppgave 2</h3>
     <h4>Valutakalkulator</h4>
-    <label for="valutasort">Valutasort: </label>
+    <label for="valutasort">Konverter fra: </label>
     <input type="text" id="valutasort"/>
     <br>
     <br>
@@ -29,9 +29,10 @@
     <input type="text" id="valutabelop"/>
     <br>
     <br>
-    <button id="visKonvertert">Regn om til NOK</button>
+    <button id="visKonvertert">Konverter til NOK</button>
     <br>
     <br>
+    <h4>Beløp konvertert til NOK</h4>
     <div id="belopKonvertert"></div>
     </div>
 
@@ -51,15 +52,19 @@
     $(function () {
         $("#visKonvertert").click(function () {
 
-            const valutasort = $("#valutasort").val();
-            const valutabelop = $("#valutabelop").val();
+            const url = "/hentKurs/?innSort=" + $("#valutasort").val()
+                + "&innBelop=" + $("#valutabelop").val();
 
-            const url = "/?innsort=" + valutasort + "&innBelop=" + valutabelop;
-
-                $.get(url, function(data){
+                $.get("/lagreArray", function(){
                     $("input").val("");
-                    $("#belopKonvertert").html(data);
+                    hentKurs();
                 });
+
+                function hentKurs(){
+                    $.get(url, function (data){
+                        $("#belopKonvertert").html(data)
+                    });
+                }
         });
     });
 </script>
